@@ -1,0 +1,20 @@
+{
+  "name": "roadedge-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "RoadEdge AI - On-Device Intelligence for Safer Roads",
+  "scripts": {
+    "build": "node scripts/build.js",
+    "vercel-build": "node scripts/build.js",
+    "deploy": "vercel --prod"
+  },
+  "keywords": [
+    "edge-ai",
+    "computer-vision",
+    "road-safety",
+    "flutter-web",
+    "vercel"
+  ],
+  "author": "RoadEdge AI Team",
+  "license": "MIT"
+}
