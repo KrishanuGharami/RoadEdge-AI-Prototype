@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="$FLUTTER_BASE_HREF">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="description" content="RoadEdge AI - On-Device Intelligence for Safer Roads. Real-time edge CV inference, automotive HUD, and hazard detection.">
+  <meta name="keywords" content="Edge AI, Computer Vision, Road Safety, Pothole Detection, Flutter Web, LiteRT, Qualcomm NPU">
+  <meta name="author" content="RoadEdge AI Team">
+
+  <!-- OpenGraph / Social Media -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RoadEdge AI | On-Device Intelligence for Safer Roads">
+  <meta property="og:description" content="Edge AI computer vision and automotive telemetry dashboard for real-time hazard detection.">
+  <meta property="og:image" content="icons/Icon-512.png">
+
+  <!-- Mobile & PWA meta tags -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="RoadEdge AI">
+  <meta name="theme-color" content="#0A0E17">
+
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+  <link rel="icon" type="image/png" href="favicon.png"/>
+
+  <title>RoadEdge AI | On-Device Intelligence for Safer Roads</title>
+  <link rel="manifest" href="manifest.json">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #0A0E17;
+      color: #E2E8F0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      overflow: hidden;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #loading-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      user-select: none;
+    }
+    .hud-scanner {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hud-ring-outer {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      border: 2px dashed rgba(0, 242, 254, 0.4);
+      animation: rotateRing 8s linear infinite;
+    }
+    .hud-ring-inner {
+      position: absolute;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      border: 2px solid transparent;
+      border-top-color: #00F2FE;
+      border-right-color: #4FACFE;
+      animation: spinInner 1.4s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    }
+    .hud-core {
+      width: 22px;
+      height: 22px;
+      background: radial-gradient(circle, #00F2FE 0%, rgba(0, 242, 254, 0.2) 80%);
+      border-radius: 50%;
+      box-shadow: 0 0 16px rgba(0, 242, 254, 0.8);
+      animation: pulseCore 2s ease-in-out infinite;
+    }
+    .brand-title {
+      font-size: 18px;
+      font-weight: 900;
+      letter-spacing: 3px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      text-shadow: 0 0 10px rgba(0, 242, 254, 0.5);
+    }
+    .status-text {
+      font-family: 'SF Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 11px;
+      letter-spacing: 1.5px;
+      color: #00F2FE;
+      opacity: 0.85;
+      text-transform: uppercase;
+      animation: blinkText 1.8s ease-in-out infinite;
+    }
+    .tagline {
+      font-size: 11px;
+      color: #64748B;
+      letter-spacing: 0.5px;
+    }
+    @keyframes rotateRing {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes spinInner {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    @keyframes pulseCore {
+      0%, 100% { transform: scale(0.9); opacity: 0.7; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+    @keyframes blinkText {
+      0%, 100% { opacity: 0.5; }
+      50% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div id="loading-container">
+    <div class="hud-scanner">
+      <div class="hud-ring-outer"></div>
+      <div class="hud-ring-inner"></div>
+      <div class="hud-core"></div>
+    </div>
+    <div class="brand-title">RoadEdge AI</div>
+    <div class="status-text">INITIALIZING EDGE ENGINE...</div>
+    <div class="tagline">On-Device Intelligence for Safer Roads</div>
+  </div>
+
+  <script src="flutter_bootstrap.js" async></script>
+</body>
+</html>
