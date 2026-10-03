@@ -1,0 +1,59 @@
+ROADEDGE AI - PROJECT STRUCTURE
+================================
+c:\Users\KRISHANU\Desktop\RoadEdge AI Prototype\roadedge_ai
+
+roadedge_ai/
+├── android/
+│   ├── app/
+│   │   ├── build.gradle.kts           (Configured with minSdk 24, aapt noCompress tflite)
+│   │   └── src/main/AndroidManifest.xml (Camera, Fine/Coarse Location, Vibration permissions)
+│   └── build.gradle.kts
+├── assets/
+│   ├── demo/
+│   │   └── road_demo.mp4              (Demo road scene assets)
+│   └── models/
+│       └── road_hazard_int8.tflite    (Quantized YOLO Nano INT8 Edge Model asset)
+├── lib/
+│   ├── main.dart                      (App entry point, system overlays & offline bootstrap)
+│   ├── models/
+│   │   ├── detection.dart             (HazardType, HazardSeverity, BoundingBox, Detection)
+│   │   ├── hazard.dart                (Hazard entity, persistence, GeoJSON Feature serialization)
+│   │   └── system_metrics.dart        (FPS, latency, hardware backend, offline status)
+│   ├── screens/
+│   │   ├── home_screen.dart           (Command dashboard, status, telemetrics, badges, CTAs)
+│   │   ├── drive_screen.dart          (Dual-mode driving HUD, detection overlay, audio-haptic alerts)
+│   │   ├── hazard_history_screen.dart (Severity filters, search, detail inspection, reset)
+│   │   ├── hazard_map_screen.dart     (Vector GIS canvas, radar sweep, pins, RFC 7946 GeoJSON export)
+│   │   └── settings_screen.dart       (Model info, Qualcomm NPU specs, privacy guarantees, thresholds)
+│   ├── services/
+│   │   ├── alert_service.dart         (Flutter TTS, haptics, debounce cooldown)
+│   │   ├── camera_service.dart        (Device camera abstraction & failsafe fallback)
+│   │   ├── detector_service.dart      (Abstract edge AI detector contract)
+│   │   ├── geojson_service.dart       (RFC 7946 compliant FeatureCollection generator)
+│   │   ├── location_service.dart      (GNSS tracking with simulated trajectory fallback)
+│   │   ├── risk_engine.dart           (Deterministic safety evaluation: class, distance, area, lane)
+│   │   ├── simulated_detector_service.dart (60 FPS simulated hackathon detection cycle)
+│   │   ├── storage_service.dart       (Offline persistence via SharedPreferences & seed dataset)
+│   │   └── tflite_detector_service.dart    (LiteRT / TFLite engine with Qualcomm GPU/XNNPACK fallback)
+│   ├── theme/
+│   │   ├── app_colors.dart            (Dark automotive HUD palette, severity colors, neon accents)
+│   │   ├── app_text_styles.dart       (High-contrast typography, monospace telemetry)
+│   │   └── app_theme.dart             (ThemeData configuration)
+│   ├── utils/
+│   │   ├── constants.dart             (Global strings, thresholds, corridor coordinates)
+│   │   └── geo_utils.dart             (Haversine math, coordinate formatting, icon mapping)
+│   └── widgets/
+│       ├── detection_overlay.dart     (Custom tactical bounding box painter with corner reticles)
+│       ├── edge_performance_panel.dart(FPS, target latency, network state, quantization HUD)
+│       ├── glass_card.dart            (Glassmorphism dark card container)
+│       ├── hazard_card.dart           (Rich hazard record card with telemetry chips)
+│       ├── municipal_map_view.dart    (Interactive offline vector GIS canvas with radar sweep)
+│       ├── risk_indicator.dart        (Severity badge with pulsing glow for critical alerts)
+│       ├── simulated_road_view.dart   (Animated 60 FPS 3D perspective driving road canvas)
+│       ├── stats_card.dart            (Dashboard telemetry stat card)
+│       └── tech_badge.dart            (Glowing credentials badge: INT8, Qualcomm Ready, Offline)
+├── test/
+│   ├── services_test.dart             (Comprehensive tests for RiskEngine, Simulation, GeoJSON)
+│   └── widget_test.dart               (RoadEdgeApp smoke test)
+├── pubspec.yaml                       (Configured dependencies & assets)
+└── README.md                          (Professional hackathon documentation)

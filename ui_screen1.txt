@@ -1,0 +1,38 @@
+ROADEDGE AI - HOME DASHBOARD SPECIFICATION (SCREEN 1)
+====================================================
+
+HEADER:
+- Brand Title: ROAD EDGE AI
+- Tagline: On-device intelligence for safer roads
+- Subtitle: Edge Intelligence for Safer Roads
+- Settings Action: Settings / Model Architecture button
+
+SYSTEM STATUS:
+- Indicator: ● EDGE ENGINE READY (Pulsing green status ring)
+- Hardware Tier: Qualcomm NPU Compatible / LiteRT Edge Runtime
+
+TECHNOLOGY BADGES:
+- [ON-DEVICE AI]
+- [INT8]
+- [OFFLINE]
+- [PRIVACY FIRST]
+- [QUALCOMM READY]
+
+TELEMETRY STATISTICS CARDS:
+- Hazards Detected Today: Real-time count of logged road events
+- High Risk Hazards: Count of Critical & High risk hazards
+- Average Confidence: YOLOv8n INT8 model confidence percentage (e.g. 91.4%)
+- Target Inference Latency: Target <25 ms (Qualcomm Hexagon NPU)
+
+PRIMARY CALL TO ACTION:
+- [START DRIVE] -> Launches Driving HUD & Computer Vision Engine
+
+SECONDARY CALL TO ACTION:
+- [VIEW HAZARD MAP] -> Launches Municipal Intelligence Vector GIS
+
+QUICK ACCESS CARDS:
+- Hazard History (Audit log access)
+- Model Info (NNAPI / INT8 Specs)
+
+PRIVACY GUARANTEE:
+- 100% on-device execution. Camera frames never leave device memory.

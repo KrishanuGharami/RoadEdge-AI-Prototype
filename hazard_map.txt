@@ -1,0 +1,60 @@
+ROADEDGE AI - MUNICIPAL INTELLIGENCE & HAZARD MAP
+=================================================
+
+PURPOSE:
+Delivers geospatial hazard intelligence to Smart City Command Centers,
+Public Works Departments (PWD), and Highway Authorities without requiring
+an active internet connection or third-party cloud tile servers.
+
+KEY CAPABILITIES:
+1. OFFLINE VECTOR GIS CANVAS:
+   - High-contrast automotive dark map styling
+   - Highway arterials, expressways, and ring road corridors
+   - Rotating radar scan sweep animation around smart city center
+   - Cluster density heat zones around critical hazard groupings
+
+2. INTERACTIVE HAZARD PINS:
+   - Color-coded by severity:
+     * Red      : CRITICAL (Pedestrians, deep potholes)
+     * Orange   : HIGH (Obstacles, heavy potholes)
+     * Amber    : MEDIUM (Road cracks, debris)
+     * Cyan     : LOW (Minor surface fissures)
+   - Interactive tap to select: displays floating inspection card with
+     coordinates, road name, confidence, and distance.
+
+3. SUMMARY TELEMETRICS BAR:
+   - Total Hazards count
+   - Critical count
+   - High risk count
+   - Medium count
+   - Low count
+   - Category filtering chips (ALL, POTHOLE, ROAD CRACK, OBSTACLE, PEDESTRIAN, DEBRIS)
+
+4. RFC 7946 GEOJSON EXPORT ENGINE:
+   - Generates valid GeoJSON FeatureCollection from local storage
+   - Standard format:
+     {
+       "type": "FeatureCollection",
+       "generator": "RoadEdge AI On-Device Vision Engine v1.0",
+       "metadata": { ... },
+       "features": [
+         {
+           "type": "Feature",
+           "geometry": {
+             "type": "Point",
+             "coordinates": [77.2090, 28.6139]
+           },
+           "properties": {
+             "id": "HAZ-2026-POT-01",
+             "hazard_type": "POTHOLE",
+             "severity": "HIGH",
+             "confidence_score": 94,
+             "distance_at_detection_meters": 14.2,
+             "detection_source": "EDGE_MODEL_INT8",
+             "road_segment": "Cyber Highway • Sector 4",
+             "on_device_verified": true
+           }
+         }
+       ]
+     }
+   - In-app JSON viewer with syntax styling and one-tap "COPY GEOJSON" action.

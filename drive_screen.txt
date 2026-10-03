@@ -1,0 +1,52 @@
+ROADEDGE AI - DRIVE SCREEN & HUD SPECIFICATION
+==============================================
+
+TOP HUD BAR:
+- Back button
+- Brand Title: ROAD EDGE AI
+- Status Indicator: LIVE OPTICAL FEED / SIMULATED DRIVE SCENE
+- Mode Switcher: [SIMULATED] | [LIVE CAM]
+- Audio Mute Toggle: Volume On / Off (TTS Voice alerts)
+
+MAIN VIEWPORT:
+1. Mode A: Live Rear Camera View (via CameraService / Flutter camera package)
+2. Mode B: Simulated 3D Road Scene:
+   - 60 FPS forward road kinematics
+   - Moving yellow dashed lane dividers
+   - Cyan neon edge shoulders
+   - Horizon skyline & sunset atmosphere
+   - Road hazard textures drawn directly on asphalt
+
+DETECTION OVERLAY:
+- Tactical corner reticles on 4 corners of bounding box
+- Label pill: [CLASS_NAME  CONFIDENCE% • SEVERITY]
+- Color-coded severity:
+  * LOW      : Cyan (#00E5FF)
+  * MEDIUM   : Amber (#FFB300)
+  * HIGH     : Vivid Orange (#FF6D00)
+  * CRITICAL : High-Voltage Crimson (#FF1744)
+- Distance badge: Estimated distance in meters
+
+HAZARD DETECTED ALERT BANNER:
+- Appears when hazard is active
+- Title: HAZARD DETECTED
+- Details: Pothole • 15 meters ahead
+- Audio Alert (TTS): "Pothole 15 meters ahead."
+- Haptic Feedback: Heavy impact pulse (double pulse for critical)
+- Cooldown Debouncing: 3.5 seconds per hazard type to avoid audio chatter
+
+BOTTOM EDGE PERFORMANCE PANEL:
+- FPS: 60 FPS (UI & Rendering Target)
+- Inference: Target <25 ms (On-Device NPU)
+- Network: OFFLINE (Zero Cloud Round-trip)
+- Model: YOLO Nano INT8 (640x640 Input Tensor)
+- Acceleration: NNAPI / Qualcomm NPU Compatible
+
+SIMULATION DEMO SEQUENCE (0-28 SECONDS CYCLE):
+- 0-5s  : Road clear / scanning
+- 5-9s  : ROAD CRACK detected (87% confidence, MEDIUM severity)
+- 9-14s : POTHOLE detected (94% confidence, HIGH severity) -> "Pothole 15 meters ahead"
+- 14-18s: PEDESTRIAN detected (91% confidence, CRITICAL severity) -> "Pedestrian ahead! Please brake immediately"
+- 18-23s: OBSTACLE detected (89% confidence, HIGH severity)
+- 23-28s: DEBRIS detected (84% confidence, MEDIUM severity)
+- Interactive Quick Trigger Chips: Allows presenter to trigger any hazard instantly during pitch!

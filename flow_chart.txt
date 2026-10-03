@@ -1,0 +1,25 @@
+Phone Camera / Dashcam Video
+          ↓
+Frame Preprocessing
+          ↓
+YOLO Nano Hazard Detection
+          ↓
+On-Device Inference
+          ↓
+┌───────────────────────────────┐
+│ Pothole      94%              │
+│ Road Crack   87%              │
+│ Pedestrian   91%              │
+│ Obstacle     89%              │
+└───────────────────────────────┘
+          ↓
+Risk Engine
+          ↓
+┌──────────────┬────────────────┐
+│ Driver Alert │ Hazard Logging │
+│ 🔊 + Haptic  │ 📍 GPS         │
+└──────────────┴────────────────┘
+          ↓
+Offline Hazard Map
+          ↓
+Municipal Road Intelligence
