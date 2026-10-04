@@ -447,36 +447,6 @@ The test suite in [`roadedge_ai/test/services_test.dart`](./roadedge_ai/test/ser
 
 ---
 
-## 🎬 Live Demonstration Run-Through
-
-Follow this sequence for hackathon pitch evaluations:
-
-```
-[00:00 - 00:30] HOME DASHBOARD
-├── Showcase system status indicator: "● EDGE ENGINE READY"
-├── Highlight edge technology badges: [ON-DEVICE AI] [INT8] [OFFLINE] [QUALCOMM READY]
-└── Point out live telemetry counters and target latency (<25 ms)
-
-[00:30 - 01:45] DRIVING HUD (START DRIVE)
-├── Animated 60 FPS forward road kinematics starts automatically
-├── 0-5s  : Normal road scanning mode
-├── 5-9s  : ROAD CRACK detected (87% confidence, MEDIUM severity)
-├── 9-14s : POTHOLE crater detected (94% confidence, HIGH severity)
-│          └── TTS Voice speaks: "Pothole 15 meters ahead"
-├── 14-18s: PEDESTRIAN detected (91% confidence, CRITICAL severity)
-│          └── Crimson warning banner + double haptic pulse
-├── 18-23s: OBSTACLE detected on lane (89% confidence, HIGH severity)
-└── Switch to "LIVE CAM" tab to demonstrate live device sensor ingestion
-
-[01:45 - 02:30] MUNICIPAL HAZARD MAP & RFC 7946 EXPORT
-├── Navigate to "VIEW HAZARD MAP"
-├── Showcase dark-mode vector GIS map, rotating radar sweep & cluster heat zones
-├── Tap any hazard pin to inspect telemetry (distance, confidence, coordinates)
-└── Tap "EXPORT GEOJSON (RFC 7946)" to view/copy standard GIS FeatureCollection
-```
-
----
-
 ## 🔭 Future Engineering Roadmap
 
 - [ ] **Qualcomm Neural Processing SDK (QNN)**: Direct C++ native bindings via Dart FFI to bypass Java NNAPI intermediate layers.
@@ -486,9 +456,7 @@ Follow this sequence for hackathon pitch evaluations:
 
 ---
 
-## 📄 License & Acknowledgments
-
-This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
+## 📄 Acknowledgments
 
 - **NAVONMESH '26**: National Level Hackathon Organizers & Evaluators.
 - **LiteRT / TensorFlow Lite**: For the high-performance on-device ML runtime.
